@@ -8,61 +8,19 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-repo_name = "rohitg00/ai-engineering-from-scratch"
+repo_name = "DavideLuppi388/GitHubReadMe"
 token     = os.getenv("GITHUB_TOKEN")
 
-py_files = [
-    "scripts/_lib.py",
-    "scripts/audit_lessons.py",
-    "scripts/build_catalog.py",
-    "scripts/check_readme_counts.py",
-    "scripts/install_skills.py",
-    "scripts/lesson_run.py",
-    "scripts/link_check.py",
-    "scripts/scaffold_workbench.py",
-]
-
-config_files = [
-    "requirements.txt",
-    "phases/00-setup-and-tooling/07-docker-for-ai/code/Dockerfile",
-    "phases/00-setup-and-tooling/07-docker-for-ai/code/docker-compose.yml",
-]
 
 REPO_SCANNER_MSG = HumanMessage(content=f"""
 Analyze the repository: {repo_name}
 GitHub token: {token}
 
-IMPORTANT: Execute these steps SEQUENTIALLY. Wait for each step to complete before starting the next.
-
-Step 1: Call get_repo_structure with repo_full_name="{repo_name}" and token="{token}"
-        WAIT for the result. Store it as STRUCTURE.
-
-Step 2: Only after Step 1 is complete, call find_files_in_structure with:
-        - structure: STRUCTURE from step 1
-        - name_contains: "requirements.txt"
-
-Step 3: Only after Step 2, call find_files_in_structure with:
-        - structure: STRUCTURE from step 1
-        - path_contains: "scripts"
-        - extension: ".py"  (NOT name_contains)
-
-Step 4: Only after Step 3, call get_dir_content with:
-        - repo_full_name: "{repo_name}"
-        - dir_path: "scripts"
-        - token: "{token}"
-
-Step 5: Only after Step 4, call read_file with:
-        - repo_full_name: "{repo_name}"
-        - file_path: "README.md"
-        - token: "{token}"
-
-DO NOT call multiple tools at the same time.
-DO NOT call find_files_in_structure before get_repo_structure has returned a result.
 
 Return:
 - PROJECT_PURPOSE: what this repo does
-- SOURCE_FILES: list of .py files found in step 3
-- CONFIG_FILES: list of config files found in step 2
+- SOURCE_FILES: list of .py files
+- CONFIG_FILES: list of config files
 - KEY_DIRECTORIES: main directories and their purpose
 - NOTABLE_FILES: important files
 """)
@@ -148,7 +106,7 @@ def run_agents():
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output_lines))
-
+        
     # ── code analyzer ─────────────────────────────────────────────────────────
     log("\n" + "=" * 60)
     log("CODE ANALYZER")

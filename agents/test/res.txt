@@ -1,0 +1,79 @@
+============================================================
+REPO SCANNER
+============================================================
+📞 [model] CALLING: get_repo_structure(['repo_full_name', 'token'])
+🔧 [tools] TOOL [get_repo_structure]: {".env": "file", ".python-version": "file", "README.md": "file", "agent_tools": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "analyze_dependencies_flow_tool.cpython-312.pyc": "file", "classify_stack_tool.cpython-312.pyc": "file", "extract_code_metadata_tool.cpython-312.pyc": "file", "get_dir_content_tool.cpython-312.pyc": "file", "get_repo_structure_tool.cpython-312.pyc": "file", "glob_search_tool.cpython-312.pyc": "file", "parse_dependencies_tool.cpython-312.pyc": "file", "query_code_context_tool.cpython-312.pyc": "file", "read_file_tool.cpython-312.pyc": "file", "search_code_content_tool.cpython-312.pyc": "file"}, "analyze_dependencies_flow_tool.py": "file", "classify_stack_tool.py": "file", "extract_code_metadata_tool.py": "file", "get_dir_content_tool.py": "file", "get_repo_structure_tool.py": "file", "glob_search_tool.py": "file", "parse_dependencies_tool.py": "file", "query_code_context_tool.py": "file", "read_file_tool.py": "file", "search_code_content_tool.py": "file", "tests": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "code_analyzer_tools.cpython-312.pyc": "file", "readfile_getrepo_globsearch.cpython-312.pyc": "file", "repo_scanner_tools.cpython-312.pyc": "file", "stack_analyzer_test.cpython-312.pyc": "file", "stack_analyzer_tools_test.cpython-312.pyc": "file"}, "code_analyzer_tools.py": "file", "repo_scanner_tools.py": "file", "stack_analyzer_tools_test.py": "file"}}, "agents": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "code_analyzer_agent.cpython-312.pyc": "file", "github_agent.cpython-312.pyc": "file", "readme_reviewer.cpython-312.pyc": "file", "readme_writer.cpython-312.pyc": "file", "repo_scanner.cpython-312.pyc": "file", "repo_scanner_agent.cpython-312.pyc": "file", "stack_analyzer_agent.cpython-312.pyc": "file"}, "code_analyzer_agent.py": "file", "github_agent.py": "file", "readme_reviewer.py": "file", "readme_writer.py": "file", "repo_scanner_agent.py": "file", "stack_analyzer_agent.py": "file", "test": {"__init__,py": "file", "__pycache__": {"agents_test.cpython-312.pyc": "file"}, "agents_test.py": "file", "res.txt": "file"}}, "main.py": "file", "prompts": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "code_analyzer_prompt.cpython-312.pyc": "file", "github_agent_prompt.cpython-312.pyc": "file", "readme_reviewer_prompt.cpython-312.pyc": "file", "readme_writer_prompt.cpython-312.pyc": "file", "repo_intelligent_supervisor_prompt.cpython-312.pyc": "file", "repo_scanner_prompt.cpython-312.pyc": "file", "stack_analyzer_prompt.cpython-312.pyc": "file"}, "code_analyzer_prompt.py": "file", "github_agent_prompt.py": "file", "readme_reviewer_prompt.py": "file", "readme_writer_prompt.py": "file", "repo_intelligent_supervisor_prompt.py": "file", "repo_scanner_prompt.py": "file", "stack_analyzer_prompt.py": "file"}, "pyproject.toml": "file", "supervisors": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "meta-supervisor.cpython-312.pyc": "file", "readme_supervisor.cpython-312.pyc": "file", "repo_intelligence_supervisor.cpython-312.pyc": "file"}, "meta-supervisor.py": "file", "readme_supervisor.py": "file", "repo_intelligence_supervisor.py": "file", "tests": {"__init__.py": "file", "__pycache__": {"__init__.cpython-312.pyc": "file", "repo_intelligent_test.cpython-312.pyc": "file"}, "repo_intelligent_test.py": "file"}}, "uv.lock": "file"}...
+📞 [model] CALLING: find_files_in_structure(['structure', 'extension'])
+📞 [model] CALLING: find_files_in_structure(['structure', 'pattern'])
+🔧 [tools] TOOL [find_files_in_structure]: ["agent_tools/__init__.py", "agent_tools/analyze_dependencies_flow_tool.py", "agent_tools/classify_stack_tool.py", "agent_tools/extract_code_metadata_tool.py", "agent_tools/get_dir_content_tool.py", "agent_tools/get_repo_structure_tool.py", "agent_tools/glob_search_tool.py", "agent_tools/parse_dependencies_tool.py", "agent_tools/query_code_context_tool.py", "agent_tools/read_file_tool.py", "agent_tools/search_code_content_tool.py", "agent_tools/tests/__init__.py", "agent_tools/tests/code_analyzer_tools.py", "agent_tools/tests/repo_scanner_tools.py", "agent_tools/tests/stack_analyzer_tools_test.py", "agents/__init__.py", "agents/code_analyzer_agent.py", "agents/github_agent.py", "agents/readme_reviewer.py", "agents/readme_writer.py", "agents/repo_scanner_agent.py", "agents/stack_analyzer_agent.py", "agents/test/agents_test.py", "main.py", "prompts/__init__.py", "prompts/code_analyzer_prompt.py", "prompts/github_agent_prompt.py", "prompts/readme_reviewer_prompt.py", "prompts/readme_writer_prompt.py", "prompts/repo_intelligent_supervisor_prompt.py", "prompts/repo_scanner_prompt.py", "prompts/stack_analyzer_prompt.py", "supervisors/__init__.py", "supervisors/meta-supervisor.py", "supervisors/readme_supervisor.py", "supervisors/repo_intelligence_supervisor.py", "supervisors/tests/__init__.py", "supervisors/tests/repo_intelligent_test.py"]...
+🔧 [tools] TOOL [find_files_in_structure]: []...
+📞 [model] CALLING: read_file(['repo_full_name', 'file_path', 'token'])
+🔧 [tools] TOOL [read_file]: ...
+🤖 [model]: PROJECT_PURPOSE:
+The specific project purpose cannot be determined in detail because the README.md content could not be retrieved. However, based on the structure and file naming, this repository appears to be a modular Python codebase focused on tools and agent-based architectures for analyzing, reading, and extracting metadata from GitHub repositories and their codebases, possibly to automate README generation, repository scanning, or code analysis tasks.
+
+SOURCE_FILES:
+[
+  "agent_tools/__init__.py",
+  "agent_tools/analyze_dependencies_flow_tool.py",
+  "agent_tools/classify_stack_tool.py",
+  "agent_tools/extract_code_metadata_tool.py",
+  "agent_tools/get_dir_content_tool.py",
+  "agent_tools/get_repo_structure_tool.py",
+  "agent_tools/glob_search_tool.py",
+  "agent_tools/parse_dependencies_tool.py",
+  "agent_tools/query_code_context_tool.py",
+  "agent_tools/read_file_tool.py",
+  "agent_tools/search_code_content_tool.py",
+  "agent_tools/tests/__init__.py",
+  "agent_tools/tests/code_analyzer_tools.py",
+  "agent_tools/tests/repo_scanner_tools.py",
+  "agent_tools/tests/stack_analyzer_tools_test.py",
+  "agents/__init__.py",
+  "agents/code_analyzer_agent.py",
+  "agents/github_agent.py",
+  "agents/readme_reviewer.py",
+  "agents/readme_writer.py",
+  "agents/repo_scanner_agent.py",
+  "agents/stack_analyzer_agent.py",
+  "agents/test/agents_test.py",
+  "main.py",
+  "prompts/__init__.py",
+  "prompts/code_analyzer_prompt.py",
+  "prompts/github_agent_prompt.py",
+  "prompts/readme_reviewer_prompt.py",
+  "prompts/readme_writer_prompt.py",
+  "prompts/repo_intelligent_supervisor_prompt.py",
+  "prompts/repo_scanner_prompt.py",
+  "prompts/stack_analyzer_prompt.py",
+  "supervisors/__init__.py",
+  "supervisors/meta-supervisor.py",
+  "supervisors/readme_supervisor.py",
+  "supervisors/repo_intelligence_supervisor.py",
+  "supervisors/tests/__init__.py",
+  "supervisors/tests/repo_intelligent_test.py"
+]
+
+CONFIG_FILES:
+[
+  ".env",
+  ".python-version",
+  "pyproject.toml",
+  "uv.lock"
+]
+
+KEY_DIRECTORIES:
+- agent_tools: Contains Python modules implementing tools for code and repository analysis, directory and file management, and tool-specific tests.
+- agents: Houses various agent implementations for code analysis, GitHub interactions, README reviewing/writing, repository scanning, and their tests.
+- prompts: Includes prompt templates likely used by agents or tools for generating requests or responses, possibly for LLM interactions.
+- supervisors: Contains supervisor modules, possibly coordinating or orchestrating agent/tool actions, and tests for these supervisors.
+
+NOTABLE_FILES:
+- README.md: (Main documentation file; content not retrievable)
+- pyproject.toml: Python project configuration file (dependencies, build system, etc.)
+- .env: Environment variable configuration
+- .python-version: Specifies the Python version for the project
+- uv.lock: Dependency lockfile
+- main.py: Likely the main entry point for running the project
+
+If you need further detail on project purpose or workflow, please provide the content of README.md or a main source file.
