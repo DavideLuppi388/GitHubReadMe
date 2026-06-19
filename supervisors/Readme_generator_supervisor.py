@@ -53,10 +53,10 @@ def create_readme_generator_supervisor(llm: BaseChatModel):
         )
         
         result = reviewer.invoke({"messages": [HumanMessage(content = prompt)]})
-        msg = result["messages"][0].content
+        msg = result["messages"][-1].content
         need_review = json.loads(msg)
         
-        return {"review_result" : result["messages"][-1].content,
+        return {"review_result" : msg,
                 "need_revision" : not need_review.get("approved")}
     
     def router_writer_or_end(state: ReadmeGenerationState):
