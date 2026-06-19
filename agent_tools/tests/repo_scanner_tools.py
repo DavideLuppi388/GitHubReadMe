@@ -1,9 +1,7 @@
 #tool in teh agent
 from agent_tools.get_repo_structure_tool import get_repo_structure
-from agent_tools.glob_search_tool import find_files_in_structure
 from agent_tools.read_file_tool import read_file
-from agent_tools.get_dir_content_tool import get_dir_content
-from agent_tools.search_code_content_tool import search_code_content
+from agent_tools.parse_dependencies_tool import parse_dependencies
 import json
 CONFIG_FILE_NAMES = [
     # python
@@ -38,9 +36,47 @@ CONFIG_FILE_NAMES = [
     ".gitlab-ci.yml",
 ]
 
-repo_name = "rohitg00/ai-engineering-from-scratch"
+repo_name = "DavideLuppi388/GitHubReadMe"
 structure = get_repo_structure.invoke({"repo_full_name": repo_name})
-#print(structure)
+#print("STRUCTURE ----------------------", structure)
+files_to_read = [file for file, metadata in json.loads(structure).items() if metadata.get("category") == "config" or metadata.get("category") == "build"]
+
+if type(files_to_read) == str:
+    files_to_read = [files_to_read]
+    
+f = read_file.invoke({
+        "repo_full_name": repo_name,
+        "file_path": files_to_read,
+    })
+
+f = json.loads(f)
+
+for file, content in f.items():
+    dep = parse_dependencies.invoke({
+        "file_path": file,
+        "content": content,
+    })
+    print("DEPENDENCIES -------------------------", dep)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exit()
 print('-------------------scanner giusto------------------')
 config_files = []
 for name in CONFIG_FILE_NAMES:
