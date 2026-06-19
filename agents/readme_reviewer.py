@@ -5,7 +5,7 @@ from langchain_core.language_models import BaseChatModel
 def create_readme_reviewer_agent(llm: BaseChatModel):
     
     return create_agent(
-        llm = llm,
+        model = llm,
         name = "readme_reviewer",
         system_prompt = README_REVIEWER_PROMPT,
     )
