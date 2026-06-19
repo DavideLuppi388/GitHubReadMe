@@ -72,24 +72,3 @@ def create_repo_intelligent_supervisor(llm: BaseChatModel):
 
     return graph.compile()
 
-
-if __name__ == "__main__":
-    llm        = ChatOpenAI(model="gpt-4o-mini")
-    supervisor = create_repo_intelligent_supervisor(llm)
-
-    repo_name = "DavideLuppi388/GitHubReadMe"
-    token     = os.getenv("GITHUB_TOKEN")
-
-    result = supervisor.invoke({
-        "repo_full_name": repo_name,
-        "token":          token,
-        "messages":       [],
-    })
-
-    # salva su file
-    output_path = os.path.join(os.path.dirname(__file__), "res.txt")
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(result["scanner_output"])
-        f.write("\n")
-        f.write(result["documentation"])
-    print(f"\n✅ Saved to {output_path}")

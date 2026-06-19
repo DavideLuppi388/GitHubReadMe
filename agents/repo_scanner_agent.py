@@ -26,27 +26,3 @@ def create_repo_scanner_agent(llm: BaseChatModel):
         system_prompt=REPO_SCANNER_PROMPT,
         name="repo_scanner",
     )
-
-if __name__ == '__main__':
-    llm = ChatOpenAI(model = "gpt-4.1-mini")
-    agent = create_repo_scanner_agent(llm)
-    repo_name = "DavideLuppi388/GitHubReadMe"
-    token     = os.getenv("GITHUB_TOKEN")
-    result = agent.invoke({
-        "messages": [
-            HumanMessage(content=f"""
-                Analyze the repository: {repo_name}
-                GitHub token: {token}
-                """)
-        ]
-    })
-
-    for msg in result["messages"]:
-        msg_type = getattr(msg, "type", type(msg).__name__)
-        if msg_type == "tool":
-            print(f"🔧 TOOL [{msg.name}]: {str(msg.content)}...")
-        elif msg_type == "ai" and hasattr(msg, "tool_calls") and msg.tool_calls:
-            for tc in msg.tool_calls:
-                print(f"📞 CALLING: {tc['name']}({list(tc['args'].keys())})")
-        elif msg_type == "ai":
-            print(f"🤖 AGENT: {msg.content}")
