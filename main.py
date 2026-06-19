@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def main():
-    llm = ChatOpenAI(model="gpt-4o-mini")
+    llm = ChatOpenAI(model="gpt-4.1")
     entry_point_supervisor = create_entry_point_supervisor(llm)
     
     result = entry_point_supervisor.invoke({
