@@ -6,7 +6,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, START, END
 
-from states.GlobalState import GlobalState
+from supervisors.states.GlobalState import GlobalState
 
 def create_entry_point_supervisor(llm:BaseChatModel):
     
